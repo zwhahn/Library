@@ -23,9 +23,40 @@ console.log(myLibrary);
 
 
 function addBookToScreen(book) {
-    const card = document.createElement("div")
-    card.classList.add("card")
-    card.textContent = book.title;
+    const card = document.createElement("div");
+    card.classList.add("card");
+    
+    const cardHeader = document.createElement("div");
+    cardHeader.classList.add("card-header")
+    cardHeader.textContent = book.title;
+    
+    const cardContent = document.createElement("div");
+    cardContent.classList.add("card-content");
+    
+    const infoContainer = document.createElement("div");
+    infoContainer.classList.add("info-container");
+
+    for (info in book){
+        const infoTitle = document.createElement("div");
+        infoTitle.classList.add("info-title")
+        infoTitle.textContent = info;
+        console.log(typeof(info))
+        const infoValue = document.createElement("div");
+        infoValue.classList.add("info-value")
+        infoValue.textContent = book[info];
+        console.log(book.info);
+        infoContainer.appendChild(infoTitle);
+        infoContainer.appendChild(infoValue);
+        cardContent.appendChild(infoContainer);
+    }
+
+
+
+
+
+    card.appendChild(cardHeader);
+    card.appendChild(cardContent);
+
     cardContainer.appendChild(card);
 }
 
