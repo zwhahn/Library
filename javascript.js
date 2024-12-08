@@ -40,24 +40,32 @@ function addBookToScreen(book) {
         const infoTitle = document.createElement("div");
         infoTitle.classList.add("info-title")
         infoTitle.textContent = info;
-        console.log(typeof(info))
+        if (info == 'read') {
+            if (!checkReadStatus(book[info])) {
+                book[info] = 'false'
+            };
+        }
         const infoValue = document.createElement("div");
         infoValue.classList.add("info-value")
         infoValue.textContent = book[info];
-        console.log(book.info);
         infoContainer.appendChild(infoTitle);
         infoContainer.appendChild(infoValue);
         cardContent.appendChild(infoContainer);
     }
 
-
-
-
-
     card.appendChild(cardHeader);
     card.appendChild(cardContent);
 
     cardContainer.appendChild(card);
+}
+
+function checkReadStatus(alreadyRead){
+    if (!alreadyRead) {
+        return false;
+    }
+    else {
+        return true;
+    }
 }
 
 const dialog = document.querySelector("dialog")
