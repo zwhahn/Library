@@ -1,0 +1,30 @@
+* {
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+#page-layout {
+    display: grid;
+    grid-template-rows: 1fr 5fr 0.5fr;
+    height: 100vh;
+}
+
+.header {
+    background-color: #bde0fe;
+}
+
+.card-container {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr))
+}
+
+.card {
+    background-color: red;
+    height: 80px;
+    width: 100px;
+}
+
+.footer {
+    background-color: #a2d2ff;
+}
