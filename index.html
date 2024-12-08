@@ -12,6 +12,27 @@
         
     </div>
     <button id="new-book-btn">New Book</button>
-    <dialog>This is a dialog box</dialog>
+    <dialog>
+        <form id="new-book-form" action="">
+            <div>
+                <label for="title">Book Title:</label>
+                <input type="text" name="title">
+            </div>
+            <div>
+                <label for="author">Author:</label>
+                <input type="text" name="author">
+            </div>
+            <div>
+                <label for="pages">Page Count:</label>
+                <input type="text" name="pages">
+            </div>
+            <div>
+                <label for="read">Read</label>
+                <input type="checkbox" name="read" id="read">
+            </div>
+            <button type="submit" id="add-to-library-btn">Add to Library</button>
+            <button id="cancel-btn">Cancel</button>
+        </form>
+    </dialog>
 </body>
 </html>
