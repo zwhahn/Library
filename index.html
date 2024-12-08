@@ -8,31 +8,41 @@
     <script src="./javascript.js" defer></script>
 </head>
 <body>
-    <div class="container">
-        
+    <div id="page-layout">
+
+        <div class="header">
+            <h1>Zach's Library</h1>
+        </div>
+        <div class="container">
+            <div class="card-container">
+            </div>
+            <button id="new-book-btn">New Book</button>
+            <dialog>
+                <form id="new-book-form" action="">
+                    <div>
+                        <label for="title">Book Title:</label>
+                        <input type="text" name="title" value="">
+                    </div>
+                    <div>
+                        <label for="author">Author:</label>
+                        <input type="text" name="author" value="">
+                    </div>
+                    <div>
+                        <label for="pages">Page Count:</label>
+                        <input type="number" name="pages" value=0>
+                    </div>
+                    <div>
+                        <label for="read">Read</label>
+                        <input type="checkbox" name="read">
+                    </div>
+                    <button type="submit" id="add-to-library-btn">Add to Library</button>
+                    <button id="cancel-btn">Cancel</button>
+                </form>
+            </dialog>
+        </div>
+        <div class="footer">
+            
+        </div>
     </div>
-    <button id="new-book-btn">New Book</button>
-    <dialog>
-        <form id="new-book-form" action="">
-            <div>
-                <label for="title">Book Title:</label>
-                <input type="text" name="title">
-            </div>
-            <div>
-                <label for="author">Author:</label>
-                <input type="text" name="author">
-            </div>
-            <div>
-                <label for="pages">Page Count:</label>
-                <input type="text" name="pages">
-            </div>
-            <div>
-                <label for="read">Read</label>
-                <input type="checkbox" name="read" id="read">
-            </div>
-            <button type="submit" id="add-to-library-btn">Add to Library</button>
-            <button id="cancel-btn">Cancel</button>
-        </form>
-    </dialog>
 </body>
 </html>
