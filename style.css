@@ -20,9 +20,22 @@
 }
 
 .card {
+    display: grid;
+    grid-template-rows: 1fr 3fr;
     background-color: red;
-    height: 80px;
-    width: 100px;
+    height: 300px;
+    width: 150px;
+}
+
+.card-header {
+    font-size: 1.3em;
+}
+
+.info-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: blueviolet;
+    height: 100%;
 }
 
 .footer {
