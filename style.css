@@ -33,9 +33,21 @@
 
 .info-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
     background-color: blueviolet;
+    gap: 10px;
     height: 100%;
+}
+
+.info-title {
+    display: flex;
+    height: 1em;
+    background-color: yellow;
+}
+
+.info-value {
+    display: flex;
+    justify-content: start;
+    height: 1.3em;
 }
 
 .footer {
