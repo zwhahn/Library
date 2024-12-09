@@ -37,26 +37,31 @@ function addBookToScreen(book) {
     infoContainer.classList.add("info-container");
 
     for (info in book){
-        const infoTitle = document.createElement("div");
-        infoTitle.classList.add("info-title")
-        infoTitle.textContent = info;
-        if (info == 'read') {
-            if (!checkReadStatus(book[info])) {
-                book[info] = 'false'
-            };
+        if (info != 'title'){
+
+            const infoTitle = document.createElement("div");
+            infoTitle.classList.add("info-title")
+            infoTitle.textContent = info;
+    
+            if (info == 'read') {
+                if (!checkReadStatus(book[info])) {
+                    book[info] = 'false'
+                };
+            }
+    
+            const infoValue = document.createElement("div");
+            infoValue.classList.add("info-value")
+            infoValue.textContent = book[info];
+            infoContainer.appendChild(infoTitle);
+            infoContainer.appendChild(infoValue);
+            cardContent.appendChild(infoContainer);
         }
-        const infoValue = document.createElement("div");
-        infoValue.classList.add("info-value")
-        infoValue.textContent = book[info];
-        infoContainer.appendChild(infoTitle);
-        infoContainer.appendChild(infoValue);
-        cardContent.appendChild(infoContainer);
-    }
-
-    card.appendChild(cardHeader);
-    card.appendChild(cardContent);
-
-    cardContainer.appendChild(card);
+    
+        card.appendChild(cardHeader);
+        card.appendChild(cardContent);
+    
+        cardContainer.appendChild(card);
+        }
 }
 
 function checkReadStatus(alreadyRead){
