@@ -41,7 +41,7 @@ function addBookToScreen(book) {
 
             const infoTitle = document.createElement("div");
             infoTitle.classList.add("info-title")
-            infoTitle.textContent = info;
+            infoTitle.textContent = capatalizeFirstLetter(info);
     
             if (info == 'read') {
                 if (!checkReadStatus(book[info])) {
@@ -71,6 +71,10 @@ function checkReadStatus(alreadyRead){
     else {
         return true;
     }
+}
+
+function capatalizeFirstLetter(word){
+    return word[0].toUpperCase() + word.slice(1);
 }
 
 const dialog = document.querySelector("dialog")
