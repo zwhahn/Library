@@ -58,6 +58,13 @@
     padding: 10px 10px 0px 10px
 }
 
+.delete-btn {
+    position: absolute;
+    align-self: flex-start;
+    justify-self: right;
+    margin: 0px 0px 0px 0px;
+}
+
 .info-container {
     padding: 0px 10px 0px 10px;
     display: grid;
