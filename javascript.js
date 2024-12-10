@@ -25,10 +25,20 @@ console.log(myLibrary);
 function addBookToScreen(book) {
     const card = document.createElement("div");
     card.classList.add("card");
+    card.id = book.title;
     
     const cardHeader = document.createElement("div");
-    cardHeader.classList.add("card-header")
+    cardHeader.classList.add("card-header");
     cardHeader.textContent = book.title;
+
+    const deleteButton = document.createElement("button");
+    deleteButton.classList.add("delete-btn");
+    card.appendChild(deleteButton);
+    deleteButton.textContent = "Remove";
+    deleteButton.setAttribute("bookTitle", book.title);
+    deleteButton.addEventListener("click", function (e){
+        removeBookFromScreen(e.target.getAttribute("bookTitle"));
+    })
     
     const cardContent = document.createElement("div");
     cardContent.classList.add("card-content");
@@ -64,6 +74,12 @@ function addBookToScreen(book) {
         }
 }
 
+function removeBookFromScreen(bookTitle) {
+    console.log(bookTitle);
+    childToRemove = document.getElementById(bookTitle);
+    cardContainer.removeChild(childToRemove);
+}
+
 function checkReadStatus(alreadyRead){
     if (!alreadyRead) {
         return false;
@@ -87,13 +103,20 @@ newBookButton.addEventListener("click", () => {
 const addToLibraryBtn = document.querySelector("#add-to-library-btn")
 const form = document.getElementById("new-book-form");
 
-function getData(form) {
-    var formData = new FormData(form);
-    formDataObject = Object.fromEntries(formData);
-    addBookToLibrary(formDataObject.title, formDataObject.author, formDataObject.pages, formDataObject.read)
-}
+const cancelBtn = document.querySelector("#cancel-btn")
 
 addToLibraryBtn.addEventListener("click", function (e) {
     e.preventDefault();
     getData(form);
 })
+
+cancelBtn.addEventListener("click", function(e) {
+    e.preventDefault();
+    dialog.close();
+})
+
+function getData(form) {
+    var formData = new FormData(form);
+    formDataObject = Object.fromEntries(formData);
+    addBookToLibrary(formDataObject.title, formDataObject.author, formDataObject.pages, formDataObject.read)
+}
