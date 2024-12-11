@@ -57,8 +57,11 @@ function addBookToScreen(book) {
     
             if (info == 'read') {
                 if (!checkReadStatus(book[info])) {
-                    book[info] = 'false'
-                };
+                    book[info] = 'Not yet'
+                }
+                else {
+                    book[info] = 'Yes'
+                }
             }
     
             const infoValue = document.createElement("div");
