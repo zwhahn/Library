@@ -31,10 +31,12 @@ function addBookToScreen(book) {
     cardHeader.classList.add("card-header");
     cardHeader.textContent = book.title;
 
-    const deleteButton = document.createElement("button");
+    const deleteButton = document.createElement("img");
     deleteButton.classList.add("delete-btn");
     card.appendChild(deleteButton);
     deleteButton.textContent = "Remove";
+    deleteButton.setAttribute("src", "./icons/trash-bin.png")
+    deleteButton.style.height = "1.0em";
     deleteButton.setAttribute("bookTitle", book.title);
     deleteButton.addEventListener("click", function (e){
         removeBookFromScreen(e.target.getAttribute("bookTitle"));
