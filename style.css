@@ -78,6 +78,9 @@
     border: darkgray 1px solid;
 }
 
+.read-btn {
+    border-radius: 0px;
+}
 
 .info-container {
     padding: 0px 10px 0px 10px;

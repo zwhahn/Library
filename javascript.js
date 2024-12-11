@@ -22,6 +22,20 @@ addBookToLibrary('Beard on Bread', 'James Beard', 345, true);
 console.log(myLibrary);
 
 
+Book.prototype.changeReadStatus = function() {
+    // const cards = document.querySelector('.card')
+    if (this.read === "Yes") {
+        this.read = "Not yet";
+    } else {
+        this.read = "Yes";
+    }
+    console.log(this);
+    bookCard = document.getElementById(this.title);
+    cardContent = bookCard.querySelector('.card-content')
+    readStatus = cardContent.querySelector('.read-status');
+    readStatus.textContent = this.read;
+}
+
 function addBookToScreen(book) {
     const card = document.createElement("div");
     card.classList.add("card");
@@ -49,34 +63,45 @@ function addBookToScreen(book) {
     infoContainer.classList.add("info-container");
 
     for (info in book){
-        if (info != 'title'){
+        if (book.hasOwnProperty(info)) {
+            if (info != 'title'){
+    
+                const infoTitle = document.createElement("div");
+                infoTitle.classList.add("info-title")
+                infoTitle.textContent = capatalizeFirstLetter(info);
+                
+                const infoValue = document.createElement("div");
+                infoValue.classList.add("info-value");
 
-            const infoTitle = document.createElement("div");
-            infoTitle.classList.add("info-title")
-            infoTitle.textContent = capatalizeFirstLetter(info);
-    
-            if (info == 'read') {
-                if (!checkReadStatus(book[info])) {
-                    book[info] = 'Not yet'
+                if (info == 'read') {
+                    infoValue.classList.add("read-status");
+                    if (!checkReadStatus(book[info])) {
+                        book[info] = 'Not yet'
+                    }
+                    else {
+                        book[info] = 'Yes'
+                    }
                 }
-                else {
-                    book[info] = 'Yes'
-                }
+        
+                infoValue.textContent = book[info];
+                infoContainer.appendChild(infoTitle);
+                infoContainer.appendChild(infoValue);
+                cardContent.appendChild(infoContainer);
             }
-    
-            const infoValue = document.createElement("div");
-            infoValue.classList.add("info-value")
-            infoValue.textContent = book[info];
-            infoContainer.appendChild(infoTitle);
-            infoContainer.appendChild(infoValue);
-            cardContent.appendChild(infoContainer);
+        
+            card.appendChild(cardHeader);
+            card.appendChild(cardContent);
+        
+            cardContainer.appendChild(card);
+            }
         }
-    
-        card.appendChild(cardHeader);
-        card.appendChild(cardContent);
-    
-        cardContainer.appendChild(card);
-        }
+    const readBtn = document.createElement("button")
+    readBtn.classList.add("read-btn")
+    readBtn.addEventListener("click", () => {
+        book.changeReadStatus()
+    })
+    readBtn.textContent = "Read?"
+    card.appendChild(readBtn)
 }
 
 function removeBookFromScreen(bookTitle) {
