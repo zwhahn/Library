@@ -139,11 +139,13 @@ addToLibraryBtn.addEventListener("click", function (e) {
     e.preventDefault();
     if (form.reportValidity()) {
         getData(form);
+        form.reset();
     }
 })
 
 cancelBtn.addEventListener("click", function(e) {
     e.preventDefault();
+    form.reset();
     dialog.close();
 })
 
