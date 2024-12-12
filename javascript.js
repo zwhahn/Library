@@ -137,7 +137,9 @@ const cancelBtn = document.querySelector("#cancel-btn")
 
 addToLibraryBtn.addEventListener("click", function (e) {
     e.preventDefault();
-    getData(form);
+    if (form.reportValidity()) {
+        getData(form);
+    }
 })
 
 cancelBtn.addEventListener("click", function(e) {
